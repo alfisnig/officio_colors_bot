@@ -18,15 +18,11 @@ class ControlPanelWindow(QMainWindow):
         self._ui.stop_bot_button.clicked.connect(self._on_stop_bot)
 
     def _on_start_bot(self):
-        print("before")
         self.start_bot.emit()
-        print("after")
         self._ui.stop_bot_button.setEnabled(True)
         self._ui.start_bot_button.setEnabled(False)
 
     def _on_stop_bot(self):
-        print("before")
         self.stop_bot.emit()
-        print("after")
         self._ui.stop_bot_button.setEnabled(False)
         self._ui.start_bot_button.setEnabled(True)
