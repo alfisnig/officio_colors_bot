@@ -6,8 +6,8 @@ It echoes any incoming text messages.
 import logging
 
 from aiogram import Bot, Dispatcher, executor, types
+from .config import API_TOKEN
 
-API_TOKEN = '1803929720:AAExLiBKNyQqAvYXZuC52e6G_mGxekKWK1E'
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -36,8 +36,11 @@ async def echo(message: types.Message):
 
 def start_bot():
     executor.start_polling(dp, skip_updates=True)
-    print("start polling!")
 
 
 def stop_bot():
     dp.stop_polling()
+
+
+if __name__ == '__main__':
+    start_bot()
