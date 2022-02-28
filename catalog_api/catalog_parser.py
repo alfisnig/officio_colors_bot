@@ -10,7 +10,9 @@ def get_pictures_from_zip(path: str) -> List[Tuple[str, bytes]]:
         for name in zip_file.namelist():
             if name.endswith((".jpg", ".jpeg", ".png")):
                 picture = zip_file.open(name)
-                pictures.append((os.path.basename(name), picture.read()))
+                picture_name = os.path.basename(name)
+                picture_name = picture_name[:picture_name.rfind(".")]
+                pictures.append((picture_name, picture.read()))
     return pictures
 
 
