@@ -23,6 +23,8 @@ class Ui_control_panel(object):
         if not control_panel.objectName():
             control_panel.setObjectName(u"control_panel")
         control_panel.resize(381, 600)
+        control_panel.setMinimumSize(QSize(381, 600))
+        control_panel.setMaximumSize(QSize(381, 600))
         self.centralwidget = QWidget(control_panel)
         self.centralwidget.setObjectName(u"centralwidget")
         self.start_bot_button = QPushButton(self.centralwidget)
