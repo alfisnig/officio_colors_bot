@@ -23,4 +23,4 @@ def execute_sql(sql_expression: str, parameters: dict = None) -> sqlite3.Cursor:
             connection.rollback()
         else:
             connection.commit()
-            return result
+            return result.fetchall()
