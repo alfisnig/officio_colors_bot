@@ -1,8 +1,13 @@
+import sys
 import os
 import json
 
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, 'frozen', False):
+    ROOT_DIR = os.path.dirname(sys.executable)
+elif __file__:
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 CATALOG_DB_NAME = "catalog.db"
 CATALOG_DB_PATH = os.path.join(ROOT_DIR, CATALOG_DB_NAME)
 LOG_FILE_NAME = "logs.log"
