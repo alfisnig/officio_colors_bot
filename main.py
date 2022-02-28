@@ -1,5 +1,4 @@
 import logging
-import os
 from app import App
 from constants import LOG_FILE_PATH
 from catalog_api import init_database
@@ -11,7 +10,14 @@ logging.basicConfig(filename=LOG_FILE_PATH, level=logging.ERROR, format='%(ascti
 init_database()
 
 
-if __name__ == '__main__':
+def run():
     app = App()
     app.init()
     app.exec()
+
+
+if __name__ == '__main__':
+    try:
+        run()
+    except Exception as e:
+        logging.error("Ошибка: ", exc_info=True)
