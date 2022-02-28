@@ -5,7 +5,8 @@ It echoes any incoming text messages.
 
 import logging
 from aiogram import Bot, Dispatcher, executor, types
-from .config import API_TOKEN
+from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
+from .config import API_TOKEN, REPLY_KEYBOARDS
 from constants import LOG_FILE_PATH
 from catalog_api import CatalogController
 
@@ -18,12 +19,17 @@ dp = Dispatcher(bot)
 catalog_controller = CatalogController()
 
 
+reply_keyboard = ReplyKeyboardMarkup()
+[reply_keyboard.add(KeyboardButton(keyboard)) for keyboard in REPLY_KEYBOARDS]
+
+
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
     """
     This handler will be called when user sends `/start` or `/help` command
     """
-    await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
+    await message.reply("Hey! I provide an electronic version of the officio materials catalog.",
+                        reply_markup=reply_keyboard)
 
 
 @dp.message_handler()
