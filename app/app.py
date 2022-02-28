@@ -1,8 +1,12 @@
 import logging
+from constants import LOG_FILE_PATH
 from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QMainWindow
 from .gui import ControlPanelWindow
 from .bot_controller import BotController
 from catalog_api import CatalogController
+
+
+logging.getLogger(LOG_FILE_PATH)
 
 
 class App:

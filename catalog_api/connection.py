@@ -1,6 +1,9 @@
 import logging
 import sqlite3
-from constants import CATALOG_DB_PATH
+from constants import CATALOG_DB_PATH, LOG_FILE_PATH
+
+
+logging.getLogger(LOG_FILE_PATH)
 
 
 def create_database():
