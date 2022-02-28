@@ -4,9 +4,10 @@ It echoes any incoming text messages.
 """
 
 import logging
-from constants import LOG_FILE_PATH
 from aiogram import Bot, Dispatcher, executor, types
 from .config import API_TOKEN
+from constants import LOG_FILE_PATH
+from catalog_api import CatalogController
 
 
 logging.getLogger(LOG_FILE_PATH)
@@ -14,6 +15,7 @@ logging.getLogger(LOG_FILE_PATH)
 # Initialize bot and dispatcher
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
+catalog_controller = CatalogController()
 
 
 @dp.message_handler(commands=['start', 'help'])
@@ -24,13 +26,13 @@ async def send_welcome(message: types.Message):
     await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
 
 
-
 @dp.message_handler()
-async def echo(message: types.Message):
-    # old style:
-    # await bot.send_message(message.chat.id, message.text)
-
-    await message.answer(message.text)
+async def material_identifier(message: types.Message):
+    material_picture = catalog_controller.get_material_by_name(message.text)
+    if material_picture is None:
+        await message.answer("I didn't find any material with this title 😔")
+    else:
+        await message.answer_photo(photo=material_picture)
 
 
 def start_bot():
