@@ -1,4 +1,12 @@
 from app import App
+import logging
+from constants import LOG_FILE_PATH
+from catalog_api import init_database
+
+
+logging.basicConfig(filename=LOG_FILE_PATH, level=logging.error, format='%(asctime)s - %(message)s',
+                    datefmt='%d-%b-%y %H:%M:%S')
+init_database()
 
 
 if __name__ == '__main__':
