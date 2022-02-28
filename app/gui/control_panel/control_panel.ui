@@ -34,7 +34,7 @@
      <string>Start bot</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="add_images_button">
+   <widget class="QPushButton" name="add_catalog_button">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -51,7 +51,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Add images</string>
+     <string>Add catalog</string>
     </property>
    </widget>
    <widget class="QPushButton" name="stop_bot_button">

@@ -32,10 +32,10 @@ class Ui_control_panel(object):
         font.setPointSize(18)
         font.setBold(False)
         self.start_bot_button.setFont(font)
-        self.add_images_button = QPushButton(self.centralwidget)
-        self.add_images_button.setObjectName(u"add_images_button")
-        self.add_images_button.setGeometry(QRect(70, 340, 241, 71))
-        self.add_images_button.setFont(font)
+        self.add_catalog_button = QPushButton(self.centralwidget)
+        self.add_catalog_button.setObjectName(u"add_catalog_button")
+        self.add_catalog_button.setGeometry(QRect(70, 340, 241, 71))
+        self.add_catalog_button.setFont(font)
         self.stop_bot_button = QPushButton(self.centralwidget)
         self.stop_bot_button.setObjectName(u"stop_bot_button")
         self.stop_bot_button.setEnabled(False)
@@ -58,7 +58,7 @@ class Ui_control_panel(object):
     def retranslateUi(self, control_panel):
         control_panel.setWindowTitle(QCoreApplication.translate("control_panel", u"MainWindow", None))
         self.start_bot_button.setText(QCoreApplication.translate("control_panel", u"Start bot", None))
-        self.add_images_button.setText(QCoreApplication.translate("control_panel", u"Add images", None))
+        self.add_catalog_button.setText(QCoreApplication.translate("control_panel", u"Add catalog", None))
         self.stop_bot_button.setText(QCoreApplication.translate("control_panel", u"Stop bot", None))
     # retranslateUi
 
