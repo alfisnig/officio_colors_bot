@@ -28,7 +28,7 @@ async def send_welcome(message: types.Message):
     """
     This handler will be called when user sends `/start` or `/help` command
     """
-    await message.reply("Hey! I provide an electronic version of the officio materials catalog.",
+    await message.reply("Привет! Я предоставляю электронную версию каталога материалов officio.",
                         reply_markup=reply_keyboard)
 
 
@@ -36,7 +36,7 @@ async def send_welcome(message: types.Message):
 async def material_identifier(message: types.Message):
     material_picture = catalog_controller.get_material_by_name(message.text)
     if material_picture is None:
-        await message.answer("I didn't find any material with this title 😔")
+        await message.answer("Я не нашел ни одного материала с таким названием 😔")
     else:
         await message.answer_photo(photo=material_picture)
 
